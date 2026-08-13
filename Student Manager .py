@@ -1,0 +1,28 @@
+import tkinter as tk
+window = tk.Tk()
+window.title("STUDENT MANAGER")
+window.geometry("300x600")
+label_1 = tk.Label(window,text= "Student Name:")
+label_1.pack()
+entry_1=tk.Entry(window)
+entry_1.pack()
+label_2 = tk.Label(window,text= "Score:")
+label_2.pack()
+entry_2=tk.Entry(window)
+entry_2.pack()
+label_3 = tk.Label(window,text= "Student:")
+label_3.pack()
+students =[]
+def get_score():
+    name = entry_1.get()
+    score = int(entry_2.get())
+    students.append(name + "-" + str(int(score)))
+    label_3.config(text = "\n".join(students))
+def clear():
+    clear_1 = entry_1.delete(0,tk.END)
+    clear_2 = entry_2.delete(0,tk.END)
+button_1 = tk.Button(window ,text="Add Student", command= get_score)
+button_1.pack(side = "left",padx=60)
+button_2 =tk.Button(window,text = "Clear", command = clear)
+button_2.pack(side="left",padx=20)
+window.mainloop()
