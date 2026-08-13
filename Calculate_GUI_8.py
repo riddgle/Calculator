@@ -1,0 +1,41 @@
+import tkinter as tk
+window=tk.Tk()
+window.title("CHEKLLII SHOP")
+window.geometry("300x600")
+label_1 = tk.Label(window, text = "Product:")
+label_1.pack()
+entry_1 = tk.Entry(window)
+entry_1.pack()
+label_2 = tk.Label(window, text = "Price:")
+label_2.pack()
+entry_2 = tk.Entry(window)
+entry_2.pack()
+label_3 = tk.Label(window, text = "Quantity:")
+label_3.pack()
+entry_3 = tk.Entry(window)
+entry_3.pack()
+label_4 = tk.Label(window, text = "Discount (%):")
+label_4.pack()
+entry_4 = tk.Entry(window)
+entry_4.pack()
+label_5 = tk.Label(window, text = "Total:")
+label_5.pack()
+
+def show():
+    name = entry_1.get()
+    price= int(entry_2.get())
+    quantity = int(entry_3.get())
+    discount= int(entry_4.get())*(price*quantity)/100
+    calculate = price*quantity - discount
+    label_5.config(text="Product: " + name + "\nTotal: " + str(int(calculate)) + " VND")
+def clear():
+    clear_1 = entry_1.delete(0,tk.END)
+    clear_2 = entry_2.delete(0,tk.END)
+    clear_3 = entry_3.delete(0,tk.END)
+    clear_4 = entry_4.delete(0,tk.END)
+       
+button_1 = tk.Button(window, text="Caculate",command =show)
+button_1.pack()
+button_2 = tk.Button(window, text="Clear",command =clear)
+button_2.pack()
+window.mainloop()
